@@ -24,6 +24,13 @@ window.onload = async function () {
 
         petId = result.events.NewPet.returnValues.petId;
 
+        window.contract.methods.pets(petId).call().then((result) => {
+          console.log(result);
+          document.getElementById("outputPetName").value = result.name;
+          document.getElementById("outputStageLevel").value = result.lifeStage;
+          document.getElementById("outputHappyMeter").value = result.happyMeter;
+        });
+
       });
   });
 
