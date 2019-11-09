@@ -1,9 +1,9 @@
-pragma solidity ^0.5.12;
+pragma solidity ^0.5.0;
 
 contract PetInteraction {
 
     // type = cat, dog, bird, etc if we expand?
-    event NewPet(uint petId, string name, uint type);
+    event NewPet(uint petId, string name);
 
     struct Pet {
         string name;
@@ -22,12 +22,13 @@ contract PetInteraction {
     // User creates a new pet
     // - can name the pet
     // - can choose the pet type (cat, dog, bird, etc)
-    function adopt(string _name) public {
-        uint id = pets.push(Pet(_name, _type, 0, 0)) - 1;
+    function adopt(string memory _name) public returns (uint) {
+        uint id = pets.push(Pet(_name, 0, 0)) - 1;
         petToOwner[id] = msg.sender;
         ownerToPets[msg.sender].push(id);
         ownerPetCount[msg.sender]++;
         emit NewPet(id, _name);
+        return id;
     }
 
     // Returns all pets of user address
