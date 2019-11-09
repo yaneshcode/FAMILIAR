@@ -28,50 +28,76 @@ window.onload = async function () {
         window.contract.methods.pets(petId).call().then((result) => {
           console.log(result);
           document.getElementById("outputPetName").value = result.name;
-          document.getElementById("outputStageLevel").value = result.lifeStage;
-          document.getElementById("outputHappyMeter").value = result.happyMeter;
+          document.getElementById("outputStageLevel").value = result.level;
+          document.getElementById("outputHappyMeter").value = result.xp;
         });
 
       });
   });
 
-  // updating pet data
-  document.getElementById("btnUpdatePet").addEventListener("click", function () {
-    console.log("Updating pet data")
-
-    window.contract.methods.pets(petId).call().then((result) => {
-      console.log(result);
-      document.getElementById("outputPetName").value = result.name;
-      document.getElementById("outputStageLevel").value = result.lifeStage;
-      document.getElementById("outputHappyMeter").value = result.happyMeter;
-    });
-
-
-  });
+  // // updating pet data
+  // document.getElementById("btnUpdatePet").addEventListener("click", function () {
+  //   console.log("Updating pet data")
+  //
+  //   window.contract.methods.pets(petId).call().then((result) => {
+  //     console.log(result);
+  //     document.getElementById("outputPetName").value = result.name;
+  //     document.getElementById("outputStageLevel").value = result.lifeStage;
+  //     document.getElementById("outputHappyMeter").value = result.happyMeter;
+  //   });
+  //
+  //
+  // });
 
   // FEED THE PET
   document.getElementById("btnFeedPet").addEventListener("click", function () {
     console.log("FEEDING PET")
     let results = document.getElementById("resultsFeed");
-    results.innerHTML = "Interaction in progress..."
+    results.innerHTML = "Feeding in progress..."
 
     window.contract.methods.feedPet(petId).send({ from: window.accounts[0] })
       .then(result => {
+
+        let results = document.getElementById("resultsFeed");
+        results.innerHTML = "Nom nom nom!<br>xp: +" + result.events.XpGainPet.returnValues.xp + (result.events.XpGainPet.returnValues.doubleXp == 1 ? " (x2 bonus!)" : "");
+
         window.contract.methods.pets(petId).call().then((result) => {
           console.log(result);
           document.getElementById("outputPetName").value = result.name;
-          document.getElementById("outputStageLevel").value = result.lifeStage;
-          document.getElementById("outputHappyMeter").value = result.happyMeter;
-
-          let results = document.getElementById("resultsFeed");
-          results.innerHTML = "Nom nom nom!"
-
+          document.getElementById("outputStageLevel").value = result.level;
+          document.getElementById("outputHappyMeter").value = result.xp;
         });
       });
+  });
 
 
+  // Play with pet
+  document.getElementById("btnPlayPet").addEventListener("click", function () {
+    console.log("Playing with pet")
+    let results = document.getElementById("resultsFeed");
+    results.innerHTML = "Interaction in progress..."
+
+    window.contract.methods.playPet(petId).send({ from: window.accounts[0] })
+      .then(result => {
+
+        let results = document.getElementById("resultsFeed");
+        results.innerHTML = "Meow meow meow!<br>xp: +" + result.events.XpGainPet.returnValues.xp + (result.events.XpGainPet.returnValues.doubleXp == 1 ? " (x2 bonus!)" : "");
+
+        setTimeout(function(){
+
+                window.contract.methods.pets(petId).call().then((result) => {
+                console.log(result);
+                document.getElementById("outputPetName").value = result.name;
+                document.getElementById("outputStageLevel").value = result.level;
+                document.getElementById("outputHappyMeter").value = result.xp;
 
 
+                });; }
+
+        , 1000, petId);
+
+
+      });
   });
 
 }
@@ -107,7 +133,8 @@ async function init_web3() {
         ],
         "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "signature": "0x9e0a1b7f"
       },
       {
         "constant": true,
@@ -126,7 +153,8 @@ async function init_web3() {
         ],
         "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "signature": "0xbd06b552"
       },
       {
         "constant": true,
@@ -145,7 +173,8 @@ async function init_web3() {
         ],
         "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "signature": "0xc6431043"
       },
       {
         "constant": true,
@@ -162,17 +191,18 @@ async function init_web3() {
             "type": "string"
           },
           {
-            "name": "lifeStage",
+            "name": "level",
             "type": "uint256"
           },
           {
-            "name": "happyMeter",
+            "name": "xp",
             "type": "uint256"
           }
         ],
         "payable": false,
         "stateMutability": "view",
-        "type": "function"
+        "type": "function",
+        "signature": "0xcfb869bf"
       },
       {
         "anonymous": false,
@@ -189,7 +219,49 @@ async function init_web3() {
           }
         ],
         "name": "NewPet",
-        "type": "event"
+        "type": "event",
+        "signature": "0x2d1290ac7e468aef52fc49096417955764c2cd7b335d24fd818436c68d6e0f04"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "name": "petId",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "name": "level",
+            "type": "uint256"
+          }
+        ],
+        "name": "LevelPet",
+        "type": "event",
+        "signature": "0xd36a59035edce0b1c8b802a32c9660009db294925e6b365b4e7b9bad816485bc"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "name": "petId",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "name": "xp",
+            "type": "uint256"
+          },
+          {
+            "indexed": false,
+            "name": "doubleXp",
+            "type": "uint256"
+          }
+        ],
+        "name": "XpGainPet",
+        "type": "event",
+        "signature": "0x69c6d049ece25c8153a31a465f90e39539ad286fcfbc0b22ca5cc941dd25978e"
       },
       {
         "constant": false,
@@ -208,7 +280,8 @@ async function init_web3() {
         ],
         "payable": false,
         "stateMutability": "nonpayable",
-        "type": "function"
+        "type": "function",
+        "signature": "0x566fc123"
       },
       {
         "constant": false,
@@ -222,12 +295,33 @@ async function init_web3() {
         "outputs": [],
         "payable": false,
         "stateMutability": "nonpayable",
-        "type": "function"
+        "type": "function",
+        "signature": "0xfbfabac4"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_petId",
+            "type": "uint256"
+          }
+        ],
+        "name": "playPet",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x19d5eaad"
       }
     ])
 
     //v1(ropsten) - 0xbb205aec980838409fa56f24a90d968fdfccaa4f
     // v2(skale) - 0x49eD503F9c86C6f907c22B14587572F348a3e3d5
-    window.contract.options.address = '0x49eD503F9c86C6f907c22B14587572F348a3e3d5'
+    // v3(after downgrading metamask) 0x7941f8F1f2501866fDC08eF7160F65875C80BD5e
+
+    // v4(kovan, rewrite) 0x05626eefe43697972312494d8619d11356bd59d0
+    // v5 (kovan, final) 0xc222c80c8ca26fcfec76bcf32aa67db46b815832
+    //v 6 (skale) 0x47728404136c84a110c0002a631ef5eDc65B3C8D
+    window.contract.options.address = '0x47728404136c84a110c0002a631ef5eDc65B3C8D'
 
 }
