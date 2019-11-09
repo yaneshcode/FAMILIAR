@@ -18,11 +18,18 @@
  *
  */
 
-// const HDWalletProvider = require('truffle-hdwallet-provider');
+const HDWalletProvider = require('truffle-hdwallet-provider');
 // const infuraKey = "fj4jll3k.....";
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
+
+//https://developers.skalelabs.com for SKALE documentation
+//Provide your wallet private key
+let privateKey = "";
+
+//Provide your SKALE endpoint address
+let skale = "http://waterloo1.skalenodes.com:10178";
 
 module.exports = {
   /**
@@ -42,11 +49,16 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-    // development: {
-    //  host: "127.0.0.1",     // Localhost (default: none)
-    //  port: 8545,            // Standard Ethereum port (default: none)
-    //  network_id: "*",       // Any network (default: none)
-    // },
+    development: {
+     host: "127.0.0.1",     // Localhost (default: none)
+     port: 8545,            // Standard Ethereum port (default: none)
+     network_id: "*",       // Any network (default: none)
+    },
+    skale: {
+      provider: () => new HDWalletProvider(privateKey, skale),
+      gasPrice: 0,
+      network_id: "*"
+  }
 
     // Another network with more advanced options...
     // advanced: {

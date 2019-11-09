@@ -1,3 +1,6 @@
+import Web3 from 'web3'
+
+const web3 = new Web3("http://waterloo1.skalenodes.com:10178");
 window.onload = async function () {
 
   var x = await init_web3()
