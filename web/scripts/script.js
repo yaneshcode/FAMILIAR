@@ -1,6 +1,4 @@
-import Web3 from 'web3'
 
-const web3 = new Web3("http://waterloo1.skalenodes.com:10178");
 window.onload = async function () {
 
   var x = await init_web3()
@@ -229,6 +227,7 @@ async function init_web3() {
     ])
 
     //v1(ropsten) - 0xbb205aec980838409fa56f24a90d968fdfccaa4f
-    window.contract.options.address = '0xbb205aec980838409fa56f24a90d968fdfccaa4f'
+    // v2(skale) - 0x49eD503F9c86C6f907c22B14587572F348a3e3d5
+    window.contract.options.address = '0x49eD503F9c86C6f907c22B14587572F348a3e3d5'
 
 }
