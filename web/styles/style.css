@@ -125,7 +125,7 @@ color: #0190C6;
 .level_text{
   font-family: Quicksand;
 font-style: normal;
-font-weight: bold;
+/* font-weight: bold; */
 font-size: 2em;
 line-height: 100%;
 /* or 15px */

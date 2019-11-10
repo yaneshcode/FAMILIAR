@@ -20,7 +20,7 @@
 
 <body>
     <div class="outer_container">
-      <div class="inner_container" id="first_page" style="display:none">
+      <div class="inner_container" id="first_page">
         <div class="header_container">
           <div>
             <img src="assets/FAMILIAR.png"/>
@@ -50,7 +50,7 @@
             </div>
         </div>
 
-        <div class="inner_container" id="game_page">
+        <div class="inner_container" id="game_page" style="display:none">
 
           <div class="user_container">
             <div class="logo_container">
@@ -86,8 +86,9 @@
           <div class="info_container">
 
             <div class="stats_container">
-              <span class="level_text">Level: 1</span>
-              <span class="user_text">Experience: 10 xp</span>
+              <b><span class="level_text" id="outputPetName"></span></b>
+              <span class="level_text">Level: <span id="outputLevel"></span></span>
+              <span class="user_text">Experience: <span id="outputXp"></span> xp</span>
             </div>
             <div class="brand_container">
               <div>

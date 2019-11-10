@@ -254,8 +254,8 @@ window.onload = async function () {
       // Get required data and create entry on blockchain using web3
       let petName = document.getElementById("inputPetName").value
 
-      let results = document.getElementById("resultsAdopt");
-      results.innerHTML = "Adoption in progress..."
+      // let results = document.getElementById("resultsAdopt");
+      // results.innerHTML = "Adoption in progress..."
 
       window.contract.methods.adopt(petName).send({ from: window.accounts[0] })
         .then(result => {
@@ -263,16 +263,19 @@ window.onload = async function () {
           console.log(result);
           let txHash = result.transactionHash;
 
-          let results = document.getElementById("resultsAdopt");
-          results.innerHTML = "Adoption successful!"
+          // let results = document.getElementById("resultsAdopt");
+          // results.innerHTML = "Adoption successful!"
+
+          document.getElementById("first_page").style.display = "none";
+          document.getElementById("game_page").style.display = "block";
 
           petId = result.events.NewPet.returnValues.petId;
 
           window.contract.methods.pets(petId).call().then((result) => {
             console.log(result);
-            document.getElementById("outputPetName").value = result.name;
-            document.getElementById("outputStageLevel").value = result.level;
-            document.getElementById("outputHappyMeter").value = result.xp;
+            document.getElementById("outputPetName").innerHTML = result.name;
+            document.getElementById("outputLevel").innerHTML = result.level;
+            document.getElementById("outputXp").innerHTML = result.xp;
           });
 
         });
@@ -287,9 +290,9 @@ window.onload = async function () {
   //
   //   window.contract.methods.pets(petId).call().then((result) => {
   //     console.log(result);
-  //     document.getElementById("outputPetName").value = result.name;
-  //     document.getElementById("outputStageLevel").value = result.lifeStage;
-  //     document.getElementById("outputHappyMeter").value = result.happyMeter;
+  //     document.getElementById("outputPetName").innerHTML = result.name;
+  //     document.getElementById("outputStageLevel").innerHTML = result.lifeStage;
+  //     document.getElementById("outputHappyMeter").innerHTML = result.happyMeter;
   //   });
   //
   //
@@ -298,21 +301,21 @@ window.onload = async function () {
   // FEED THE PET
   document.getElementById("btnFeedPet").addEventListener("click", function () {
     console.log("FEEDING PET")
-    let results = document.getElementById("resultsFeed");
-    results.innerHTML = "Feeding in progress..."
+    // let results = document.getElementById("resultsFeed");
+    // results.innerHTML = "Feeding in progress..."
 
     window.contract.methods.feedPet(petId).send({ from: window.accounts[0] })
       .then(result => {
 
-        let results = document.getElementById("resultsFeed");
-        results.innerHTML = "Nom nom nom!<br>xp: +" + result.events.XpGainPet.returnValues.xp + (result.events.XpGainPet.returnValues.doubleXp == 1 ? " (x2 bonus!)" : "");
+        // let results = document.getElementById("resultsFeed");
+        // results.innerHTML = "Nom nom nom!<br>xp: +" + result.events.XpGainPet.returnValues.xp + (result.events.XpGainPet.returnValues.doubleXp == 1 ? " (x2 bonus!)" : "");
 
         window.contract.methods.pets(petId).call().then((result) => {
           console.log(result);
-          document.getElementById("outputPetName").value = result.name;
-          document.getElementById("outputStageLevel").value = result.level;
-          document.getElementById("outputHappyMeter").value = result.xp;
-        });
+          document.getElementById("outputPetName").innerHTML = result.name;
+          document.getElementById("outputLevel").innerHTML = result.level;
+          document.getElementById("outputXp").innerHTML = result.xp;
+            });
       });
   });
 
@@ -320,23 +323,22 @@ window.onload = async function () {
   // Play with pet
   document.getElementById("btnPlayPet").addEventListener("click", function () {
     console.log("Playing with pet")
-    let results = document.getElementById("resultsFeed");
-    results.innerHTML = "Interaction in progress..."
+    // let results = document.getElementById("resultsFeed");
+    // results.innerHTML = "Interaction in progress..."
 
     window.contract.methods.playPet(petId).send({ from: window.accounts[0] })
       .then(result => {
 
-        let results = document.getElementById("resultsFeed");
-        results.innerHTML = "Meow meow meow!<br>xp: +" + result.events.XpGainPet.returnValues.xp + (result.events.XpGainPet.returnValues.doubleXp == 1 ? " (x2 bonus!)" : "");
+        // let results = document.getElementById("resultsFeed");
+        // results.innerHTML = "Meow meow meow!<br>xp: +" + result.events.XpGainPet.returnValues.xp + (result.events.XpGainPet.returnValues.doubleXp == 1 ? " (x2 bonus!)" : "");
 
         setTimeout(function(){
 
                 window.contract.methods.pets(petId).call().then((result) => {
                 console.log(result);
-                document.getElementById("outputPetName").value = result.name;
-                document.getElementById("outputStageLevel").value = result.level;
-                document.getElementById("outputHappyMeter").value = result.xp;
-
+                document.getElementById("outputPetName").innerHTML = result.name;
+                document.getElementById("outputLevel").innerHTML = result.level;
+                document.getElementById("outputXp").innerHTML = result.xp;
 
                 });; }
 
