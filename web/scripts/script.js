@@ -273,6 +273,8 @@ window.onload = async function () {
 
           window.contract.methods.pets(petId).call().then((result) => {
             console.log(result);
+            document.getElementById("kitten_static_img").style.display = "block";
+
             document.getElementById("outputPetName").innerHTML = result.name;
             document.getElementById("outputLevel").innerHTML = result.level;
             document.getElementById("outputXp").innerHTML = result.xp;
@@ -304,6 +306,23 @@ window.onload = async function () {
     // let results = document.getElementById("resultsFeed");
     // results.innerHTML = "Feeding in progress..."
 
+    switch (document.getElementById("outputLevel").innerHTML) {
+      case "1":
+        document.getElementById("kitten_static_img").style.display = "none";
+        document.getElementById("kitten_happy_gif").style.display = "block";
+        break;
+      case "2":
+        document.getElementById("cat_static_img").style.display = "none";
+        document.getElementById("cat_happy_gif").style.display = "block";
+        break;
+      case "3":
+        document.getElementById("lion_static_img").style.display = "none";
+        document.getElementById("lion_happy_gif").style.display = "block";
+
+        break;
+      default:
+
+    }
     window.contract.methods.feedPet(petId).send({ from: window.accounts[0] })
       .then(result => {
 
@@ -311,9 +330,47 @@ window.onload = async function () {
         // results.innerHTML = "Nom nom nom!<br>xp: +" + result.events.XpGainPet.returnValues.xp + (result.events.XpGainPet.returnValues.doubleXp == 1 ? " (x2 bonus!)" : "");
         console.log(result);
 
+        switch (document.getElementById("outputLevel").innerHTML) {
+          case "1":
+            document.getElementById("kitten_static_img").style.display = "block";
+            document.getElementById("kitten_happy_gif").style.display = "none";
+            break;
+          case "2":
+            document.getElementById("cat_static_img").style.display = "block";
+            document.getElementById("cat_happy_gif").style.display = "none";
+            break;
+          case "3":
+            document.getElementById("lion_static_img").style.display = "block";
+            document.getElementById("lion_happy_gif").style.display = "none";
+
+            break;
+          default:
+
+        }
+
         if(result.events.LevelPet) {
+          switch (result.events.LevelPet.returnValues.level) {
+            case "2":
+              document.getElementById("kitten_static_img").style.display = "none";
+              document.getElementById("kitten_to_cat_gif").style.display = "block";
+              setTimeout(function(){
+                document.getElementById("kitten_to_cat_gif").style.display = "none";
+                document.getElementById("cat_static_img").style.display = "block";
+              }, 3000);
+              break;
+            case "3":
+              document.getElementById("cat_static_img").style.display = "none";
+              document.getElementById("cat_to_lion_gif").style.display = "block";
+              setTimeout(function(){
+                document.getElementById("cat_to_lion_gif").style.display = "none";
+                document.getElementById("lion_static_img").style.display = "block";
+              }, 3000);
+              break;
+            default:
+
+          }
           document.getElementById("lvl_up_img").style.display = "block";
-          document.getElementById("lvl_up_img").style.animation = "3s ease-in 1s infinite reverse both running slidein";
+
           setTimeout(function(){
             document.getElementById("lvl_up_img").style.display = "none";
           }, 3000);
