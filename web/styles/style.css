@@ -188,3 +188,8 @@ color: #0190C6;
   align-items: flex-end;
   display:flex;
 }
+
+#lvl_up_img{
+  animation: 3s ease-in 1s infinite reverse both running slidein"
+
+}

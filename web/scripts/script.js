@@ -299,7 +299,7 @@ window.onload = async function () {
   // });
 
   // FEED THE PET
-  document.getElementById("btnFeedPet").addEventListener("click", function () {
+  document.getElementById("feed_button").addEventListener("click", function () {
     console.log("FEEDING PET")
     // let results = document.getElementById("resultsFeed");
     // results.innerHTML = "Feeding in progress..."
@@ -309,7 +309,16 @@ window.onload = async function () {
 
         // let results = document.getElementById("resultsFeed");
         // results.innerHTML = "Nom nom nom!<br>xp: +" + result.events.XpGainPet.returnValues.xp + (result.events.XpGainPet.returnValues.doubleXp == 1 ? " (x2 bonus!)" : "");
+        console.log(result);
 
+        if(result.events.LevelPet) {
+          document.getElementById("lvl_up_img").style.display = "block";
+          document.getElementById("lvl_up_img").style.animation = "3s ease-in 1s infinite reverse both running slidein";
+          setTimeout(function(){
+            document.getElementById("lvl_up_img").style.display = "none";
+          }, 3000);
+
+        }
         window.contract.methods.pets(petId).call().then((result) => {
           console.log(result);
           document.getElementById("outputPetName").innerHTML = result.name;
@@ -321,7 +330,7 @@ window.onload = async function () {
 
 
   // Play with pet
-  document.getElementById("btnPlayPet").addEventListener("click", function () {
+  document.getElementById("play_button").addEventListener("click", function () {
     console.log("Playing with pet")
     // let results = document.getElementById("resultsFeed");
     // results.innerHTML = "Interaction in progress..."
