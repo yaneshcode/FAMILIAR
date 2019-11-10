@@ -101,3 +101,63 @@ text-transform: uppercase;
 
 color: #0190C6;
 }
+
+.user_container{
+  width: 90%;
+  height:10%;
+  display: flex;
+  justify-content: left;
+
+}
+.user_text{
+  font-family: Quicksand;
+font-style: normal;
+font-weight: bold;
+font-size: 1em;
+line-height: 100%;
+/* or 15px */
+
+letter-spacing: 0.08em;
+text-transform: uppercase;
+
+color: #0190C6;
+}
+.address_container{
+  margin-left: 10px;
+}
+
+.button_container{
+  width: 90%;
+  height:20%;
+  background: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notif_container{
+  width: 90%;
+  height:20%;
+  background: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pet_container{
+  width: 90%;
+  background: red;
+  height:30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info_container{
+  width: 90%;
+  height:20%;
+  background: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
