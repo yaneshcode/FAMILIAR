@@ -129,10 +129,12 @@ color: #0190C6;
 .button_container{
   width: 90%;
   height:20%;
-  background: blue;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+}
+.single_button_container{
+  cursor: pointer;
 }
 
 .notif_container{
@@ -150,7 +152,7 @@ color: #0190C6;
   height:30%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .info_container{
@@ -158,6 +160,6 @@ color: #0190C6;
   height:20%;
   background: pink;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 }
