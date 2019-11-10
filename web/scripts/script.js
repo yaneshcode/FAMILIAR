@@ -9,6 +9,20 @@ window.onload = async function () {
   const portis = new Portis('d9f9ad84-5dff-4ab6-8859-373a9ab1abaa', mySKALEChain);
   const web3 = new Web3(portis.provider);
 
+  portis.onLogin((walletAddress, email, reputation) => {
+    console.log(walletAddress, email, reputation);
+    console.log("on login!")
+
+    document.getElementById("showPortis").style.display = "none";
+    document.getElementById("showAdopt").style.display = "block";
+  });
+
+  portis.isLoggedIn().then(({ error, result }) => {
+    console.log("isloggedin!")
+    document.getElementById("showPortis").style.display = "none";
+    document.getElementById("showAdopt").style.display = "block";
+  });
+
   document.getElementById("showPortis").onclick = () => portis.showPortis();
 
 
@@ -233,34 +247,38 @@ window.onload = async function () {
 
   var petId = null;
 
-  document.getElementById("btnAdoptPet").addEventListener("click", function () {
-    console.log("Adopting pet")
+  document.getElementById("inputPetName").addEventListener("keypress", function (e) {
+    if (e.key === 'Enter') {
+      console.log("Adopting pet")
 
-    // Get required data and create entry on blockchain using web3
-    let petName = document.getElementById("inputPetName").value
+      // Get required data and create entry on blockchain using web3
+      let petName = document.getElementById("inputPetName").value
 
-    let results = document.getElementById("resultsAdopt");
-    results.innerHTML = "Adoption in progress..."
+      let results = document.getElementById("resultsAdopt");
+      results.innerHTML = "Adoption in progress..."
 
-    window.contract.methods.adopt(petName).send({ from: window.accounts[0] })
-      .then(result => {
-        console.log("Success")
-        console.log(result);
-        let txHash = result.transactionHash;
-
-        let results = document.getElementById("resultsAdopt");
-        results.innerHTML = "Adoption successful!"
-
-        petId = result.events.NewPet.returnValues.petId;
-
-        window.contract.methods.pets(petId).call().then((result) => {
+      window.contract.methods.adopt(petName).send({ from: window.accounts[0] })
+        .then(result => {
+          console.log("Success")
           console.log(result);
-          document.getElementById("outputPetName").value = result.name;
-          document.getElementById("outputStageLevel").value = result.level;
-          document.getElementById("outputHappyMeter").value = result.xp;
-        });
+          let txHash = result.transactionHash;
 
-      });
+          let results = document.getElementById("resultsAdopt");
+          results.innerHTML = "Adoption successful!"
+
+          petId = result.events.NewPet.returnValues.petId;
+
+          window.contract.methods.pets(petId).call().then((result) => {
+            console.log(result);
+            document.getElementById("outputPetName").value = result.name;
+            document.getElementById("outputStageLevel").value = result.level;
+            document.getElementById("outputHappyMeter").value = result.xp;
+          });
+
+        });
+    }
+
+
   });
 
   // // updating pet data

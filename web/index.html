@@ -14,50 +14,58 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.33/dist/web3.min.js"></script>
     <script type="module" src="./scripts/script.js"></script>
-
+    <link rel='stylesheet' href='/styles/style.css' />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" />
 </head>
 
 <body>
-    <div class="container">
-        <nav class="teal">
-            <div class="nav-wrapper">
-                <!-- <a href="#" class="brand-logo right">Logo</a> -->
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="#">Adopt Pet</a></li>
-                    <li><a href="#">Pet Interaction</a></li>
-                    <li><a href="#">Info & Stuff</a></li>
-                </ul>
-            </div>
-        </nav>
-
-    <button id="showPortis">Show Portis</button>
-        <h3>Adopt a pet</h3>
-        <div class="row">
-            <!-- <div class="col s6">
-                <label>Contract Address: </label>
-                <p id="contractAddress">0x49eD503F9c86C6f907c22B14587572F348a3e3d5</p>
-                <hr>
-            </div> -->
-        </div>
-        <div class="row">
-            <div class="col s6">
-                <label>Pet Name: </label><input type="text" id="inputPetName" placeholder="My New Pet Name">
-                <button id="btnAdoptPet" class="waves-effect waves-light btn">Adopt!</button>
-                <div id="resultsAdopt"></div>
-            </div>
-        </div>
-        <h3>Pet Interaction</h3>
-        <div class="row">
-
-          <div class="col s6">
-            <label>Pet Name: </label><input type="text" id="outputPetName">
-            <label>Level: </label><input type="text" id="outputStageLevel">
-            <label>EXP: </label><input type="text" id="outputHappyMeter">
-            <button id="btnPlayPet" class="waves-effect waves-light btn">Walk</button>
-            <button id="btnFeedPet" class="waves-effect waves-light btn">Feed</button>
-            <div id="resultsFeed"></div>
+    <div class="outer_container">
+      <div class="inner_container" style="display:none">
+        <div class="header_container">
+          <div>
+            <img src="assets/FAMILIAR.png"/>
           </div>
+
         </div>
+        <div class="subheader_container">
+          <div class="login_container" id="showPortis">
+            <img src="assets/portis_logo_small.png" width="45%" height="45%" style="position:relative;top:10px"/>
+            <span class="login_text">login</span>
+          </div>
+          <div class="adopt_container" id="showAdopt" style="display:none">
+            <span class="adopt_text">ADOPT A CAT TODAY > ></span>
+            <div class="col-4">
+              <input type="text" id="inputPetName">
+            </div>
+
+          </div>
+          </div>
+          <div class="subheader_container">
+            <div class="powered_container" >
+
+              <span class="powered_text">Powered by </span>
+                <img src="assets/skale.png" width="120%" height="120%" style="position:relative;top:10px;left:10px"/>
+
+            </div>
+            </div>
+        </div>
+
+        <div class="inner_container">
+          <div class="header_container">
+            <div>
+header            </div>
+
+          </div>
+          <div class="subheader_container">
+subheader
+
+            </div>
+            <div class="subheader_container">
+
+asdf
+              </div>
+          </div>
+      </div>
     </div>
 </body>
 
