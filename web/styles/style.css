@@ -122,6 +122,19 @@ text-transform: uppercase;
 
 color: #0190C6;
 }
+.level_text{
+  font-family: Quicksand;
+font-style: normal;
+font-weight: bold;
+font-size: 2em;
+line-height: 100%;
+/* or 15px */
+
+letter-spacing: 0.08em;
+text-transform: uppercase;
+
+color: #0190C6;
+}
 .address_container{
   margin-left: 10px;
 }
@@ -135,12 +148,13 @@ color: #0190C6;
 }
 .single_button_container{
   cursor: pointer;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .notif_container{
   width: 90%;
   height:20%;
-  background: green;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,7 +162,6 @@ color: #0190C6;
 
 .pet_container{
   width: 90%;
-  background: red;
   height:30%;
   display: flex;
   justify-content: center;
@@ -158,8 +171,20 @@ color: #0190C6;
 .info_container{
   width: 90%;
   height:20%;
-  background: pink;
   display: flex;
   justify-content: left;
-  align-items: center;
+}
+
+.stats_container{
+  width: 25%;
+  height:20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: right;
+  flex-direction: column;
+}
+
+.brand_container{
+  align-items: flex-end;
+  display:flex;
 }
