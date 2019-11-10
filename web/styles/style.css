@@ -148,10 +148,12 @@ color: #0190C6;
 }
 .single_button_container{
   cursor: pointer;
-  margin-left: 20%;
-  margin-right: 20%;
+  /* margin-left: 20%;
+  margin-right: 20%; */
 }
-
+.single_button_container:hover{
+  filter: invert(50%);
+}
 .notif_container{
   width: 90%;
   height:20%;
@@ -189,7 +191,38 @@ color: #0190C6;
   display:flex;
 }
 
-#lvl_up_img{
-  animation: 3s ease-in 1s infinite reverse both running slidein"
+.pet_container{
+  z-index: 5;
+}
+.cat_image{
+  z-index: 4;
+}
 
+
+#middle_logo{
+  z-index: 1;
+}
+
+
+#lvl_up_img{
+  -webkit-animation:notifSlideUp 3s;
+  /* Safari and Chrome */
+  -webkit-animation-fill-mode: forwards;
+}
+
+#xp_drop{
+  -webkit-animation:notifSlideUp 3s;
+  /* Safari and Chrome */
+  -webkit-animation-fill-mode: forwards;
+}
+ @-webkit-keyframes notifSlideUp
+/* Safari and Chrome */
+ {
+    0% {
+      margin-bottom: 10%;
+    }
+    100% {
+        opacity: 0.1;
+        margin-bottom: 30%;
+    }
 }

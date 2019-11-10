@@ -44,21 +44,23 @@
             <div class="powered_container" >
 
               <span class="powered_text">Powered by </span>
-                <img src="assets/skale.png" width="120%" height="120%" style="position:relative;top:10px;left:10px"/>
+                <img src="assets/skale.png" width="120%" height="120%" style="position:relative;top:10px;left:10px;filter: invert(1);"/>
 
             </div>
             </div>
         </div>
 
         <div class="inner_container" id="game_page" style="display:none">
-
+              <div style="position: absolute; left: 500px; top: 350px">
+                <img id="middle_logo" src="assets/FAMILIAR.png"/>
+              </div>
           <div class="user_container">
             <div class="logo_container">
               <img src="assets/address_icon.png" width="30px" height="30px"style="position:relative;top:5px;"/>
 
             </div>
             <div class="address_container">
-              <span class="user_text">The Kittoon<br>0x88A89bD4f4b08b28f48......</span>
+              <span class="user_text">yaneshcode@gmail.com<br>0x88A89bD4f4b08b28f48......</span>
 
             </div>
           </div>
@@ -68,25 +70,28 @@
               <img src="assets/play_button_icon.png"/>
             </div>
             <div id="feed_button" class="single_button_container">
-              <img src="assets/feed_button_icon.png"/>
+              <img class="middle_logo" src="assets/feed_button_icon.png"/>
             </div>
 
           </div>
 
           <div class="notif_container" >
+            <span id="xp_drop" style="display:none"></span>
             <img id="lvl_up_img" src="assets/lvl_up_button.png" style="display:none"/>
-
           </div>
 
           <div class="pet_container">
-            <img id="kitten_static_img" src="assets/kitten_static.png" style="display:none"/>
-            <img id="cat_static_img" src="assets/cat_static.png" style="display:none"/>
-            <img id="lion_static_img" src="assets/lion_static.png" style="display:none"/>
-            <img id="kitten_happy_gif" src="assets/happy_kitten.gif" style="display:none" width="50%" height="150%"/>
-            <img id="cat_happy_gif" src="assets/happy_cat.gif" style="display:none" width="50%" height="150%"/>
-            <img id="lion_happy_gif" src="assets/happy_lion.gif" style="display:none" width="50%" height="150%"/>
-            <img id="kitten_to_cat_gif" src="assets/kitten2cat.gif" style="display:none" width="50%" height="150%"/>
-            <img id="cat_to_lion_gif" src="assets/cat2lion.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="kitten_static_img" src="assets/kitten_static.png" style="display:none"/>
+            <img class="cat_image" id="cat_static_img" src="assets/cat_static.png" style="display:none"/>
+            <img class="cat_image" id="lion_static_img" src="assets/lion.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="super_static_img" src="assets/super.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="kitten_happy_gif" src="assets/happy_kitten.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="cat_happy_gif" src="assets/happy_cat.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="lion_happy_gif" src="assets/happy_lion.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="super_happy_gif" src="assets/happy_super.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="kitten_to_cat_gif" src="assets/kitten2cat.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="cat_to_lion_gif" src="assets/cat2lion.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="lion_to_super_gif" src="assets/lion2super.gif" style="display:none" width="50%" height="150%"/>
 
 
           </div>
@@ -94,13 +99,12 @@
           <div class="info_container">
 
             <div class="stats_container">
-              <b><span class="level_text" id="outputPetName"></span></b>
+              <b><span class="level_text" id="outputPetName"></span></b><br>
               <span class="level_text">Level: <span id="outputLevel"></span></span>
               <span class="user_text">Experience: <span id="outputXp"></span> xp</span>
             </div>
             <div class="brand_container">
               <div>
-                <img src="assets/FAMILIAR.png" width="80%" height="80%"/>
               </div>
 
             </div>
