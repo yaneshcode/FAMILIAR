@@ -29,7 +29,7 @@ const HDWalletProvider = require('truffle-hdwallet-provider');
 let privateKey = "";
 
 //Provide your SKALE endpoint address
-let skale = "http://waterloo1.skalenodes.com:10178";
+let skale = "https://waterloo1.skalenodes.com:10183";
 
 module.exports = {
   /**

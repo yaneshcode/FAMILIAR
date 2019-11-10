@@ -6935,12 +6935,12 @@
     "1": {
       "events": {},
       "links": {},
-      "address": "0x47728404136c84a110c0002a631ef5eDc65B3C8D",
-      "transactionHash": "0x1e6ac6633a4042b0f326d0cb0efa847eddcf925841c77f76abb4d9674ed1bd02"
+      "address": "0x6F37A10F6bB7C0E01A17bA1F34A0a4B8F18eF578",
+      "transactionHash": "0x7016d45494e55340759674f4d91c5d3a89072650c825c627977f0d12b9b287c6"
     }
   },
   "schemaVersion": "3.0.1",
-  "updatedAt": "2019-11-09T20:29:39.617Z",
+  "updatedAt": "2019-11-10T04:26:04.440Z",
   "devdoc": {
     "methods": {}
   },
