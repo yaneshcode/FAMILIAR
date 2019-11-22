@@ -1,10 +1,10 @@
 window.onload = async function () {
 
+// https://waterloo1.skalenodes.com:10183
   const mySKALEChain = {
     nodeUrl: "https://waterloo1.skalenodes.com:10183",
     nodeProtocol: 'rpc',
   };
-
 
   const portis = new Portis('d9f9ad84-5dff-4ab6-8859-373a9ab1abaa', mySKALEChain);
   const web3 = new Web3(portis.provider);
@@ -243,6 +243,8 @@ window.onload = async function () {
   // v5 (kovan, final) 0xc222c80c8ca26fcfec76bcf32aa67db46b815832
   //v 6 (skale) 0x47728404136c84a110c0002a631ef5eDc65B3C8D
   //v7 skale https  0x6F37A10F6bB7C0E01A17bA1F34A0a4B8F18eF578
+
+  // v8 skale post hackathon
   window.contract.options.address = '0x6F37A10F6bB7C0E01A17bA1F34A0a4B8F18eF578'
 
   var petId = null;
@@ -286,23 +288,12 @@ window.onload = async function () {
 
   });
 
-  // // updating pet data
-  // document.getElementById("btnUpdatePet").addEventListener("click", function () {
-  //   console.log("Updating pet data")
-  //
-  //   window.contract.methods.pets(petId).call().then((result) => {
-  //     console.log(result);
-  //     document.getElementById("outputPetName").innerHTML = result.name;
-  //     document.getElementById("outputStageLevel").innerHTML = result.lifeStage;
-  //     document.getElementById("outputHappyMeter").innerHTML = result.happyMeter;
-  //   });
-  //
-  //
-  // });
-
   // FEED THE PET
   document.getElementById("feed_button").addEventListener("click", function () {
     console.log("FEEDING PET")
+    this.style.pointerEvents = "none";
+    document.getElementById("play_button").style.pointerEvents = "none";
+
     // let results = document.getElementById("resultsFeed");
     // results.innerHTML = "Feeding in progress..."
 
@@ -405,10 +396,12 @@ window.onload = async function () {
                 document.getElementById("outputPetName").innerHTML = result.name;
                 document.getElementById("outputLevel").innerHTML = result.level;
                 document.getElementById("outputXp").innerHTML = result.xp;
+                document.getElementById("feed_button").style.pointerEvents = "auto";
+                document.getElementById("play_button").style.pointerEvents = "auto";
 
                 });; }
 
-        , 1000, petId);
+        , 1500, petId);
       });
   });
 
@@ -416,6 +409,9 @@ window.onload = async function () {
   // Play with pet
   document.getElementById("play_button").addEventListener("click", function () {
     console.log("Playing with pet")
+    this.style.pointerEvents = "none";
+    document.getElementById("feed_button").style.pointerEvents = "none";
+
     // let results = document.getElementById("resultsFeed");
     // results.innerHTML = "Interaction in progress..."
 
@@ -517,10 +513,12 @@ window.onload = async function () {
                 document.getElementById("outputPetName").innerHTML = result.name;
                 document.getElementById("outputLevel").innerHTML = result.level;
                 document.getElementById("outputXp").innerHTML = result.xp;
+                document.getElementById("play_button").style.pointerEvents = "auto";
+                document.getElementById("feed_button").style.pointerEvents = "auto";
 
                 });; }
 
-        , 1000, petId);
+        , 1500, petId);
 
 
       });
