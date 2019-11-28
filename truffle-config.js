@@ -37,7 +37,7 @@ let privateKey = "";
 // https://sip1.skalenodes.com:10051
 // http://sip1.skalenodes.com:10046
 
-let skale = "https://sip1.skalenodes.com:10051";
+let skale = "https://sip2211-0.skalenodes.com:10007";
 
 module.exports = {
   /**

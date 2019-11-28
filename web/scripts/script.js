@@ -2,7 +2,7 @@ window.onload = async function () {
 
 // https://waterloo1.skalenodes.com:10183
   const mySKALEChain = {
-    nodeUrl: "https://waterloo1.skalenodes.com:10183",
+    nodeUrl: "https://sip2211-0.skalenodes.com:10007",
     nodeProtocol: 'rpc',
   };
 
@@ -244,8 +244,9 @@ window.onload = async function () {
   //v 6 (skale) 0x47728404136c84a110c0002a631ef5eDc65B3C8D
   //v7 skale https  0x6F37A10F6bB7C0E01A17bA1F34A0a4B8F18eF578
 
-  // v8 skale post hackathon
-  window.contract.options.address = '0x6F37A10F6bB7C0E01A17bA1F34A0a4B8F18eF578'
+  // v8 skale post hackathon 0x6F37A10F6bB7C0E01A17bA1F34A0a4B8F18eF578
+  //v9 skale post hackathon new 0x49eD503F9c86C6f907c22B14587572F348a3e3d5
+  window.contract.options.address = '0x49eD503F9c86C6f907c22B14587572F348a3e3d5'
 
   var petId = null;
 
