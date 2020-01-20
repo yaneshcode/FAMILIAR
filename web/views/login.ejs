@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Familiar</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@portis/web3@2.0.0-beta.50/umd/index.js"
+      integrity="sha256-mORGsYSjna5hnRXvD3DuNTr5lB0za3lusbHTY30etCE="
+      crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.33/dist/web3.min.js"></script>
+    <script type="module" src="/javascripts/script.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" />
+</head>
+
+<body>
+    <div class="outer_container">
+      <div class="inner_container" id="login_page">
+        <div class="header_container">
+          <div>
+            <img src="../images/FAMILIAR.png"/>
+          </div>
+        </div>
+        <div class="subheader_container">
+          <div class="adopt_container" id="login_form" >
+            <div class="col-4">
+              <span class="login_text">Enter credentials</span>
+              <form action="/login" method="post">
+              	<div>
+              	<input class="form-control" type="hidden" name="username" value="user"/><br/>
+              	</div>
+              	<div>
+              	<input class="form-control" type="password" name="password"/>
+              	</div>
+              	<div>
+                <input type="submit" hidden />
+              	</div>
+              </form>
+            </div>
+          </div>
+          </div>
+          <div class="subheader_container">
+            <div class="powered_container" >
+
+              <span class="powered_text">Powered by </span>
+                <img src="../images/skale.png" width="120%" height="120%" style="position:relative;top:10px;left:10px;filter: invert(1);"/>
+
+            </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+</body>
+
+</html>

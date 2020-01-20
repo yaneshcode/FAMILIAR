@@ -19,6 +19,8 @@
  */
 
 const HDWalletProvider = require('truffle-hdwallet-provider');
+const {PRIVATE_KEY} = require('../credentials');
+
 // const infuraKey = "fj4jll3k.....";
 //
 // const fs = require('fs');
@@ -26,7 +28,7 @@ const HDWalletProvider = require('truffle-hdwallet-provider');
 
 //https://developers.skalelabs.com for SKALE documentation
 //Provide your wallet private key
-let privateKey = "";
+let privateKey = PRIVATE_KEY;
 
 //Provide your SKALE endpoint address
 

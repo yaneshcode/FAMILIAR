@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Familiar</title>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@portis/web3@2.0.0-beta.50/umd/index.js"
+      integrity="sha256-mORGsYSjna5hnRXvD3DuNTr5lB0za3lusbHTY30etCE="
+      crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.33/dist/web3.min.js"></script>
+    <script type="module" src="./scripts/script.js"></script>
+    <link rel='stylesheet' href='/styles/style.css' />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" />
+</head>
+
+<body>
+    <div class="outer_container">
+      <div class="inner_container" id="first_page">
+        <div class="header_container">
+          <div>
+            <img src="assets/FAMILIAR.png"/>
+          </div>
+
+        </div>
+        <div class="subheader_container">
+          <div class="login_container" id="showPortis">
+            <img src="assets/portis_logo_small.png" width="45%" height="45%" style="position:relative;top:10px"/>
+            <span class="login_text">login</span>
+          </div>
+          <div class="adopt_container" id="showAdopt" style="display:none">
+            <span class="adopt_text">ADOPT A CAT TODAY > ></span>
+            <div class="col-4">
+              <input type="text" id="inputPetName">
+            </div>
+
+          </div>
+          </div>
+          <div class="subheader_container">
+            <div class="powered_container" >
+
+              <span class="powered_text">Powered by </span>
+                <img src="assets/skale.png" width="120%" height="120%" style="position:relative;top:10px;left:10px;filter: invert(1);"/>
+
+            </div>
+            </div>
+        </div>
+
+        <div class="inner_container" id="game_page" style="display:none">
+              <div style="position: absolute; left: 500px; top: 350px">
+                <img id="middle_logo" src="assets/FAMILIAR.png"/>
+              </div>
+          <div class="user_container">
+            <div class="logo_container">
+              <img src="assets/address_icon.png" width="30px" height="30px"style="position:relative;top:5px;"/>
+
+            </div>
+            <div class="address_container">
+              <span class="user_text">yaneshcode@gmail.com<br>0x88A89bD4f4b08b28F......</span>
+
+            </div>
+          </div>
+
+          <div class="button_container">
+            <div id="play_button" class="single_button_container">
+              <img src="assets/play_button_icon.png"/>
+            </div>
+            <div id="feed_button" class="single_button_container">
+              <img class="middle_logo" src="assets/feed_button_icon.png"/>
+            </div>
+
+          </div>
+
+          <div class="notif_container" >
+            <span id="xp_drop" style="display:none"></span>
+            <img id="lvl_up_img" src="assets/lvl_up_button.png" style="display:none"/>
+          </div>
+
+          <div class="pet_container">
+            <img class="cat_image" id="kitten_static_img" src="assets/kitten_static.png" style="display: none;position: relative;bottom: 33px;"/>
+            <img class="cat_image" id="cat_static_img" src="assets/cat_static.png" style="display:none;position: relative;bottom: 38px;" width="28%" height="98%"/>
+            <img class="cat_image" id="lion_static_img" src="assets/lion.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="super_static_img" src="assets/super.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="kitten_happy_gif" src="assets/happy_kitten.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="cat_happy_gif" src="assets/happy_cat.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="lion_happy_gif" src="assets/happy_lion.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="super_happy_gif" src="assets/happy_super.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="kitten_to_cat_gif" src="assets/kitten2cat.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="cat_to_lion_gif" src="assets/cat2lion.gif" style="display:none" width="50%" height="150%"/>
+            <img class="cat_image" id="lion_to_super_gif" src="assets/lion2super.gif" style="display:none" width="50%" height="150%"/>
+          </div>
+
+          <div class="info_container">
+
+            <div class="stats_container">
+              <b><span class="level_text" id="outputPetName"></span></b><br>
+              <span class="level_text">Level: <span id="outputLevel"></span></span>
+              <span class="user_text">Experience: <span id="outputXp"></span> xp</span>
+            </div>
+            <div class="brand_container">
+              <div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>

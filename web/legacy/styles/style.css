@@ -1,0 +1,228 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    background: linear-gradient(180deg, #7EE6FF 0%, #D1F6FF 150.68%);
+}
+
+.container
+{
+  padding: 50px;
+  color: red;
+
+}
+
+a {
+  color: #00B7FF;
+}
+
+.navbar-class {
+    width: 100%;
+}
+
+.main-background
+{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.99), rgba(0,0,0,0.94)), url("../images/innovfin.jpg");
+    background-size:100% 100%;
+    background-repeat: repeat-y;
+
+}
+
+.outer_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.inner_container{
+  display: flex;
+  width: 60%;
+  height:90%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header_container{
+  width: 90%;
+  height:20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.subheader_container{
+  width: 90%;
+  height:30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_container{
+  width: 30%;
+  cursor: pointer;
+}
+.login_text{
+  font-family: Quicksand;
+font-style: normal;
+font-weight: bold;
+font-size: 2em;
+line-height: 100%;
+color: #0190C6;
+margin-left: 10px;
+}
+
+.powered_container{
+  width: 20%;
+}
+.powered_text{
+  font-family: Quicksand;
+font-style: normal;
+font-weight: bold;
+font-size: 1.2em;
+line-height: 100%;
+color: #0190C6;
+margin-left: 10px;
+}
+
+.adopt_text{
+  font-family: Quicksand;
+font-style: normal;
+font-weight: bold;
+font-size: 2em;
+line-height: 100%;
+/* or 15px */
+
+letter-spacing: 0.08em;
+text-transform: uppercase;
+
+color: #0190C6;
+}
+
+.user_container{
+  width: 90%;
+  height:10%;
+  display: flex;
+  justify-content: left;
+
+}
+.user_text{
+  font-family: Quicksand;
+font-style: normal;
+font-weight: bold;
+font-size: 1em;
+line-height: 100%;
+/* or 15px */
+
+letter-spacing: 0.08em;
+text-transform: uppercase;
+
+color: #0190C6;
+}
+.level_text{
+  font-family: Quicksand;
+font-style: normal;
+/* font-weight: bold; */
+font-size: 2em;
+line-height: 100%;
+/* or 15px */
+
+letter-spacing: 0.08em;
+text-transform: uppercase;
+
+color: #0190C6;
+}
+.address_container{
+  margin-left: 10px;
+}
+
+.button_container{
+  width: 90%;
+  height:20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.single_button_container{
+  cursor: pointer;
+  /* margin-left: 20%;
+  margin-right: 20%; */
+}
+.single_button_container:hover{
+  filter: invert(50%);
+}
+.notif_container{
+  width: 90%;
+  height:20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pet_container{
+  width: 90%;
+  height:30%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.info_container{
+  width: 90%;
+  height:20%;
+  display: flex;
+  justify-content: left;
+}
+
+.stats_container{
+  width: 25%;
+  height:20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: right;
+  flex-direction: column;
+}
+
+.brand_container{
+  align-items: flex-end;
+  display:flex;
+}
+
+.pet_container{
+  z-index: 5;
+}
+.cat_image{
+  z-index: 4;
+}
+
+
+#middle_logo{
+  z-index: 1;
+}
+
+
+#lvl_up_img{
+  -webkit-animation:notifSlideUp 3s;
+  /* Safari and Chrome */
+  -webkit-animation-fill-mode: forwards;
+}
+
+#xp_drop{
+  -webkit-animation:notifSlideUp 3s;
+  /* Safari and Chrome */
+  -webkit-animation-fill-mode: forwards;
+}
+ @-webkit-keyframes notifSlideUp
+/* Safari and Chrome */
+ {
+    0% {
+      margin-bottom: 10%;
+    }
+    100% {
+        opacity: 0.1;
+        margin-bottom: 30%;
+    }
+}
